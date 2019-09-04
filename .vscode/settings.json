@@ -1,0 +1,5 @@
+{
+    "html-css-class-completion.enableEmmetSupport": true,
+    "debug.node.autoAttach": "on",
+    "tslint.alwaysShowStatus": true
+}
