@@ -12,17 +12,6 @@ class PostTemplate extends Component {
 
         
 
-        if(post.acf !== null) {
-
-            if(post.acf.facebook !== '') {
-                facebook = `<h3>Facebook</h3> ${post.acf.facebook}`
-            }
-
-            if(post.acf.twitter !== '') {
-                twitter = `<h3>Twitter</h3> ${post.acf.twitter}`
-            }
-
-        }
 
         return (
             <div>
