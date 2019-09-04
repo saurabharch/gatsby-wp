@@ -32,10 +32,7 @@ export const pageQuery = graphql`
         }
         site {
             id
-            siteMetadata {
-                title
-                subtitle
-            }
+            
         }
     }
 `

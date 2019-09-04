@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 import Img from "gatsby-image"
 
 class PostTemplate extends Component {
@@ -63,10 +63,7 @@ export const pageQuery = graphql`
         wordpressPost(id: { eq: $id }) {
             title
             content
-            acf {
-                facebook
-                twitter
-            }
+            
             featured_media{
                 localFile{
                     childImageSharp{
@@ -82,7 +79,7 @@ export const pageQuery = graphql`
         site {
             siteMetadata {
                 title
-                subtitle
+               
             }
         }
     }
