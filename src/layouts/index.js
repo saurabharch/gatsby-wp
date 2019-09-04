@@ -7,7 +7,7 @@ import './index.css'
 
 import MainMenu from '../components/Menu/MainMenu'
 
-const TemplateWrapper = ({ children,  data }) => (
+const TemplateWrapper = ({ children, data }) => (
   <div>
     <Helmet
       title="Gatsby Default Starter"
@@ -25,7 +25,7 @@ const TemplateWrapper = ({ children,  data }) => (
         paddingTop: 0,
       }}
     >
-        <MainMenu menu={data} />
+      <MainMenu menu={data} />
       {children()}
     </div>
   </div>
@@ -39,18 +39,18 @@ export default TemplateWrapper
 
 export const query = graphql`
   query LayoutQuery {
-        allWordpressWpApiMenusMenusItems{
-            edges{
-                node{
-                    id
-                    name
-                    items{
-                        title
-                        url
-                        object_slug
-                    }
-                }
-            }
+    allWordpressWpApiMenusMenusItems {
+      edges {
+        node {
+          id
+          name
+          items {
+            title
+            url
+            object_slug
+          }
         }
+      }
+    }
   }
 `

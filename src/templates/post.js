@@ -1,34 +1,30 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 // import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import Img from 'gatsby-image'
 
 class PostTemplate extends Component {
-    render() {
-        const post = this.props.data.wordpressPost
-        const resolutions = (post.featured_media) ? post.featured_media.localFile.childImageSharp.resolutions : null
+  render() {
+    const post = this.props.data.wordpressPost
+    const resolutions = post.featured_media
+      ? post.featured_media.localFile.childImageSharp.resolutions
+      : null
 
+    console.log(resolutions)
 
-        console.log(resolutions)
+    return (
+      <div>
+        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
 
-        
+        {resolutions && (
+          <div>
+            <Img resolutions={resolutions} />
+            <img src={resolutions.src} alt="" />
+          </div>
+        )}
 
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
-        return (
-            <div>
-                <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-
-                {resolutions &&
-                    <div>
-                        <Img resolutions={resolutions}/>
-                        < img src={resolutions.src} alt=""/>
-                    </div>
-                }
-
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
-
-                
-
-                {/*{post.acf !== null &&
+        {/*{post.acf !== null &&
                     <div>
                         <h3>Facebook</h3>
                         {post.acf.facebook}
@@ -37,37 +33,35 @@ class PostTemplate extends Component {
                         {post.acf.twitter}
                     </div>
                 }*/}
-            </div>
-        )
-    }
+      </div>
+    )
+  }
 }
-
 
 export default PostTemplate
 
 export const pageQuery = graphql`
-    query currentPostQuery($id: String!) {
-        wordpressPost(id: { eq: $id }) {
-            title
-            content
-            
-            featured_media{
-                localFile{
-                    childImageSharp{
-                        resolutions(width:500, height: 200){
-                            src
-                            width
-                            height
-                        }
-                    }
-                }
+  query currentPostQuery($id: String!) {
+    wordpressPost(id: { eq: $id }) {
+      title
+      content
+
+      featured_media {
+        localFile {
+          childImageSharp {
+            resolutions(width: 500, height: 200) {
+              src
+              width
+              height
             }
+          }
         }
-        site {
-            siteMetadata {
-                title
-               
-            }
-        }
+      }
     }
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
 `
