@@ -10,8 +10,7 @@ class PostTemplate extends Component {
 
         console.log(resolutions)
 
-        let facebook = ''
-        let twitter = ''
+        
 
         if(post.acf !== null) {
 
@@ -38,8 +37,7 @@ class PostTemplate extends Component {
 
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
-                <div dangerouslySetInnerHTML={{__html: facebook}}></div>
-                <div dangerouslySetInnerHTML={{__html: twitter}}></div>
+                
 
                 {/*{post.acf !== null &&
                     <div>
