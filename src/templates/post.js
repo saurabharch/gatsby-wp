@@ -11,6 +11,19 @@ class PostTemplate extends Component {
 
     console.log(resolutions)
 
+      let facebook = ''
+      let twitter = ''
+      if (post.acf !== null) {
+
+          if (post.acf.facebook !== '') {
+              facebook = `<h3>Facebook</h3> ${post.acf.facebook}`
+          }
+
+          if (post.acf.twitter !== '') {
+              twitter = `<h3>Twitter</h3> ${post.acf.twitter}`
+          }
+
+      }
     return (
       <div>
         <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
@@ -24,6 +37,13 @@ class PostTemplate extends Component {
 
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
+            if(post.acf.facebook !== '' ) {
+                <div dangerouslySetInnerHTML={{ __html: facebook }}></div>
+                
+            }
+            if(post.acf.twitter != '') {
+                <div dangerouslySetInnerHTML={{ __html: twitter }}></div>
+            }
         {/*{post.acf !== null &&
                     <div>
                         <h3>Facebook</h3>
@@ -61,6 +81,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        subtitle
       }
     }
   }

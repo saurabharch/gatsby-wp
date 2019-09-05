@@ -9,7 +9,7 @@ module.exports = {
         {
             resolve: "gatsby-source-wordpress",
             options: {
-                baseUrl: "http://monkhosts.com",
+                baseUrl: "https://monkhosts.com",
                 protocol: "http",
                 hostingWPCOM: false,
                 useACF: true,

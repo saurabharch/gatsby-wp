@@ -1,6 +1,6 @@
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
+ * Nothing Here
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
