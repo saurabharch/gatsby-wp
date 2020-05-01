@@ -20,7 +20,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
@@ -41,7 +42,9 @@
     "lint:md": "remark content/posts/",
     "write-good": "write-good $(glob 'content/posts/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "check": "npx npm-check-updates -u"
+    "check": "npx npm-check-updates -u",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -49,5 +52,6 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "snyk": true
 }
